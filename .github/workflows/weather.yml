@@ -12,5 +12,5 @@ on:
           weather_in: ${{ github.event.pull_request.number }
         run: |
           export body=$(curl 'https://api.open-meteo.com/v1/forecast?latitude=52.52&longitude=13.41&current_weather=true')
-          export currentweathe=$(echo $body | jq '.current_weathe')
+          export currentweathe=$(echo $body | jq '.current_weather.tempruter')
           gh pr comment $weather_in --body "this is the weather $curentwheather "
